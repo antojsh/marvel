@@ -4,6 +4,13 @@
   padding: .8em 6em .8em 6em;
 }
 
-.wraper-pages{
+.wraper-pages {
   background: #F4F4F4;
+  min-height: calc(100vh - 70px)
+}
+
+.backgroundMarvel {
+  background: url(/assets/icons/fondo.jpg);
+  background-size: cover;
+  background-position: center;
 }

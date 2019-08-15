@@ -3,19 +3,24 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { ComicsPageComponent } from './pages/comics-page/comics-page.component';
+import { HomeComponent } from './pages/home/home.component'
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
   {
     path: 'search',
     component: SearchPageComponent
   },
   {
-    path: 'comics/:idCharacter',
+    path: 'character/:idCharacter/comics',
     component: ComicsPageComponent
   },
   {
     path: '',
-    redirectTo: 'search',
+    redirectTo: '',
     pathMatch: 'full'
   }
 ];

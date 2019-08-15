@@ -1,21 +1,33 @@
-<div class="row" style="margin-top: 20px;">
-  <div class="col-lg-9 title-page">
-    <img src="/assets/icons/characters.png" alt="">
-    <h1>Characters</h1>
+<div *ngIf="charactersResult.length > 0 && loaded">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-lg-9 title-page">
+      <img src="/assets/icons/characters.png" alt="">
+      <h1>Characters</h1>
+    </div>
+    <div class="col-lg-3">
+      <select name="" id="" class="select-sort">
+        <option value="">Sort by</option>
+        <option value="">Sort by</option>
+      </select>
+    </div>
   </div>
-  <div class="col-lg-3">
-    <select name="" id="" class="select-sort">
-      <option value="">Sort by</option>
-      <option value="">Sort by</option>
-    </select>
+  <app-characters-list [characters]="charactersResult">
+  </app-characters-list>
+
+  <div class="paginator">
+    <a [href]="back">&#60;</a>
+    <a [href]="buildUrlPaginator(i)" *ngFor="let item of getTotalPages; let i = index"
+      [ngClass]="{'selected': i == 0 && params.offset==0 ? true :  params.offset / i  == params.limit }">{{i+1}}
+    </a>
+    <a [href]="next">&#62;</a>
   </div>
 </div>
-<app-characters-list [characters]="charactersResult"></app-characters-list>
 
-<div class="paginator">
-  <a [href]="back">&#60;</a>
-  <a [href]="buildUrlPaginator(i)" *ngFor="let item of getTotalPages; let i = index"
-    [ngClass]="{'selected': i == 0 && params.offset==0 ? true :  params.offset / i  == params.limit }">{{i+1}}
-  </a>
-  <a [href]="next">&#62;</a>
+
+<div class="row" *ngIf="charactersResult.length == 0 && loaded">
+  <h1>Not Found Results</h1>
+</div>
+
+<div class="row" *ngIf="!loaded">
+  <h2>Loading characters...</h2>
 </div>

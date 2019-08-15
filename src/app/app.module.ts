@@ -12,6 +12,7 @@ import { ComicsPageComponent } from './pages/comics-page/comics-page.component';
 import { CharactersListComponent } from './components/characters-list/characters-list.component';
 import { ComicsListComponent } from './components/comics-list/comics-list.component';
 import { FavoriteComicsComponent } from './components/favorite-comics/favorite-comics.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FavoriteComicsComponent } from './components/favorite-comics/favorite-c
     ComicsPageComponent,
     CharactersListComponent,
     ComicsListComponent,
-    FavoriteComicsComponent
+    FavoriteComicsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

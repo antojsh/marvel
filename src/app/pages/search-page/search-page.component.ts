@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./search-page.component.scss']
 })
 export class SearchPageComponent implements OnInit {
-
+  loaded: boolean = false;
   charactersResult: any[] = []
   charactersResponse: any;
   params: any;
@@ -23,9 +23,14 @@ export class SearchPageComponent implements OnInit {
   }
 
   getCharacters(params) {
+    this.loaded = false;
     this.marvel.getCharacter(this.buildParams(params)).subscribe(Response => {
       this.charactersResponse = Response;
       this.charactersResult = Response.data.results;
+      this.loaded = true;
+    }, err => {
+      this.charactersResult = [];
+      this.loaded = true;
     })
   }
 
@@ -54,7 +59,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   get getTotalPages() {
-    
+
     return this.charactersResponse ? new Array(Math.ceil(this.charactersResponse.data.total / this.charactersResponse.data.limit)) : []
   }
 

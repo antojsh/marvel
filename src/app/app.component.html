@@ -1,9 +1,9 @@
-<app-header></app-header>
-<div class="row wraper-pages">
-  <div class="col-lg-9 content-pages">
+<app-header [hidden]="isHome"></app-header>
+<div class="row wraper-pages " [ngClass]="{'backgroundMarvel':isHome}">
+  <div class="content-pages" [ngClass]="{'col-lg-12': isHome, 'col-lg-9': !isHome}">
     <router-outlet></router-outlet>
   </div>
-  <div class="col-lg-3">
+  <div class="col-lg-3" [hidden]="isHome">
     <app-favorite-comics></app-favorite-comics>
   </div>
 </div>

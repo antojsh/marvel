@@ -7,7 +7,7 @@
             <img [src]="item.thumbnail.path+'.'+item.thumbnail.extension" [alt]="item.name">
           </div>
           <div class="col-lg-7 info-character">
-            <a href="">
+            <a [routerLink]="'/character/'+item.id+'/comics'">
               <h1 class="name-character">{{item.name}}</h1>
             </a>
             <div class="block-ellipsis">
