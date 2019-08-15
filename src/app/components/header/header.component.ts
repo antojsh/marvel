@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  inputSearch: String = '';
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  searchCharacter() {
+    console.log('SUBMIT')
+    this.router.navigateByUrl(`/search?nameStartsWith=${this.inputSearch}&limit=10&offset=0?`)
   }
 
 }

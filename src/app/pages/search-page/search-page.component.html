@@ -1,1 +1,21 @@
-<p>search-page works!</p>
+<div class="row" style="margin-top: 20px;">
+  <div class="col-lg-9 title-page">
+    <img src="/assets/icons/characters.png" alt="">
+    <h1>Characters</h1>
+  </div>
+  <div class="col-lg-3">
+    <select name="" id="" class="select-sort">
+      <option value="">Sort by</option>
+      <option value="">Sort by</option>
+    </select>
+  </div>
+</div>
+<app-characters-list [characters]="charactersResult"></app-characters-list>
+
+<div class="paginator">
+  <a [href]="back">&#60;</a>
+  <a [href]="buildUrlPaginator(i)" *ngFor="let item of getTotalPages; let i = index"
+    [ngClass]="{'selected': i == 0 && params.offset==0 ? true :  params.offset / i  == params.limit }">{{i+1}}
+  </a>
+  <a [href]="next">&#62;</a>
+</div>

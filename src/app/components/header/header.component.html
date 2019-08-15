@@ -1,12 +1,14 @@
 <header>
   <div class="row">
-    <div class="col-LG-3">
+    <div class="col-lg-3">
       <div class="box">
         <img src="/assets/icons/Marvel_logo_red.png" alt="">
       </div>
     </div>
-    <div class="col-lg-9">
-      hola
+    <div class="col-lg-6">
+      <form (submit)="searchCharacter()">
+        <input type="text" placeholder="Search Character..." [(ngModel)]="inputSearch" name="inputSearch">
+      </form>
     </div>
   </div>
 </header>
